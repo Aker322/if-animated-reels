@@ -223,6 +223,167 @@ Object.assign(SCENES, {
   },
 });
 
+
+function house(x, y, w, h, wall, roof, win, lit, t, seed = 1) {
+  c.fillStyle = wall; c.fillRect(x, y, w, h); c.fillStyle = roof; c.beginPath(); c.moveTo(x - 14, y); c.lineTo(x + w / 2, y - h * 0.45); c.lineTo(x + w + 14, y); c.fill();
+  const r = rng(seed); for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) { const on = lit === true || r() < lit; const wx = x + w * (0.18 + 0.44 * j), wy = y + h * (0.18 + 0.42 * i);
+    c.fillStyle = on ? win : 'rgba(0,0,0,0.35)'; c.fillRect(wx, wy, w * 0.2, h * 0.22); if (on) glow(wx + w * 0.1, wy + h * 0.11, w * 0.3, win, 0.18 + 0.04 * Math.sin(t * TAU / 2.5 + i + j)); }
+}
+function tree(x, y, s, col, t) { c.fillStyle = col; c.fillRect(x - 6 * s, y - 80 * s, 12 * s, 80 * s); const sw = Math.sin(t * TAU / 2.5 + x) * 4 * s;
+  [[0, -120, 55], [-35, -95, 40], [35, -95, 42], [0, -160, 38]].forEach(([dx, dy, r]) => disc(x + dx * s + sw, y + dy * s, r * s, col)); }
+function streetlamp(x, y, h, t, col = '#FFB347', ph = 0) { c.fillStyle = '#05061A'; c.fillRect(x - 3, y - h, 6, h); c.fillRect(x - 3, y - h, 34, 5); const f = 0.9 + 0.1 * Math.sin(t * TAU * 1.6 + ph);
+  glow(x + 30, y - h + 8, 110, col, 0.45 * f); disc(x + 30, y - h + 8, 6, '#FFF2C0'); c.save(); c.globalAlpha = 0.10 * f; c.fillStyle = col; c.beginPath(); c.moveTo(x + 24, y - h + 8); c.lineTo(x + 36, y - h + 8); c.lineTo(x + 90, y); c.lineTo(x - 30, y); c.fill(); c.restore(); }
+function steam(x, y, t, n = 3, col = 'rgba(255,255,255,0.28)') { c.strokeStyle = col; c.lineWidth = 5; c.lineCap = 'round'; for (let i = 0; i < n; i++) { c.beginPath(); for (let k = 0; k <= 16; k++) { const yy = y - k * 7, xx = x + i * 14 + Math.sin(k * 0.5 - t * TAU / 1.25 + i) * 6; k ? c.lineTo(xx, yy) : c.moveTo(xx, yy); } c.stroke(); } }
+
+Object.assign(SCENES, {
+  afternoonstreet(t) {                                   // kids playing in the street on an ordinary golden afternoon
+    sky([[0, '#2E7BD6'], [0.55, '#FFB25A'], [0.56, '#3A2A6E']]); cloudDrift(40, 200, t, 'rgba(255,240,220,0.55)', 4, 3, 0.8);
+    [[40, 300, 170, 150, '#4A2E86', '#2A1A5A'], [250, 320, 150, 130, '#5A3A96', '#2A1A5A'], [700, 300, 180, 150, '#4A2E86', '#2A1A5A']].forEach(([x, y, w, h, wa, ro], i) => house(x, y, w, h, wa, ro, '#FFD36B', 0.5, t, i + 3));
+    tree(560, 452, 1.0, '#2A1A5A', t); tree(910, 452, 0.8, '#2A1A5A', t);
+    c.fillStyle = '#2A1A4E'; c.fillRect(0, 452, W, 368); c.fillStyle = 'rgba(255,178,90,0.18)'; c.fillRect(0, 452, W, 30);
+    const kids = [[300, 0], [470, 1.3], [640, 2.1]]; kids.forEach(([x, ph], i) => { const b = Math.abs(Math.sin(t * TAU / 0.833 + ph)) * 14; c.save(); c.globalAlpha = 0.35; c.fillStyle = '#120A2A'; c.beginPath(); c.ellipse(x + 60, 700, 70, 10, -0.2, 0, TAU); c.fill(); c.restore(); figure(x + Math.sin(t * TAU / 2.5 + ph) * 30, 700 - 210 * 0.34 - b, 0.34, '#0E0824', { wind: true, t }); });
+    const u = P5(t * 2), bx = 300 + 340 * Math.abs(2 * u - 1) * 1.0, by = 600 - 160 * Math.sin(Math.PI * ((u * 2) % 1)); disc(bx + 20, by, 14, '#FF5A5A');
+    dust(40, 101, t, '#FFE2A8', [0, 0, W, 460], 10);
+  },
+  frontdoor(t) {                                         // friends at the front door at dusk, asking if you can come out
+    sky([[0, '#0E1A4A'], [1, '#1A2A6E']]);
+    c.fillStyle = '#2A1E5A'; c.fillRect(0, 0, 640, 700); c.fillStyle = '#1E1648'; c.fillRect(0, 700, W, 120);
+    const f = 0.9 + 0.1 * Math.sin(t * TAU * 2.2) * Math.sin(t * TAU / 1.25); glow(470, 150, 260, '#FFB347', 0.45 * f); disc(470, 150, 12, '#FFE2A0');
+    c.fillStyle = '#FFD36B'; c.fillRect(200, 180, 220, 520); c.fillStyle = '#B0242E'; c.save(); c.translate(200, 180); c.transform(0.75 + 0.03 * TW(t), 0.04, 0, 1, 0, 0); c.fillRect(0, 0, 220, 520); c.restore();
+    disc(380, 450, 7, '#FFD36B');
+    [[700, 0], [820, 1.1]].forEach(([x, ph]) => { figure(x + Math.sin(t * TAU / 2.5 + ph) * 3, 700 - 210 * 0.42, 0.42, '#06041A', { wind: true, t }); });
+    c.strokeStyle = '#06041A'; c.lineWidth = 6; [[900, 680]].forEach(([x, y]) => { c.beginPath(); c.arc(x - 40, y, 22, 0, TAU); c.stroke(); c.beginPath(); c.arc(x + 30, y, 22, 0, TAU); c.stroke(); c.beginPath(); c.moveTo(x - 40, y); c.lineTo(x - 5, y - 30); c.lineTo(x + 30, y); c.moveTo(x - 5, y - 30); c.lineTo(x - 12, y - 48); c.stroke(); });
+    dust(25, 103, t, '#FFE066', [560, 300, 400, 380], 14);
+  },
+  carnight(t) {                                          // falling asleep in the back seat, streetlights sliding past
+    sky([[0, '#05061A'], [1, '#0C1036']]);
+    c.fillStyle = '#0A0E2E'; c.beginPath(); c.roundRect(120, 90, 720, 300, 40); c.fill();
+    c.save(); c.beginPath(); c.roundRect(140, 110, 680, 260, 30); c.clip(); c.fillStyle = vgrad(110, 370, [[0, '#0A1650'], [1, '#2A1A6E']]); c.fillRect(140, 110, 680, 260);
+    for (let i = 0; i < 3; i++) { const x = 880 - ((P5(t * 2) + i / 3) % 1) * 1000; glow(x, 160, 90, '#FFB347', 0.6); c.fillStyle = '#05061A'; c.fillRect(x - 3, 160, 6, 220); }
+    c.fillStyle = '#05061A'; for (let i = 0; i < 9; i++) { const x = 820 - ((P5(t * 3) + i / 9) % 1) * 760; c.fillRect(x, 330, 40 + (i % 3) * 30, 40); }
+    c.restore();
+    const sweep = (P5(t * 2) * 1.3) % 1; c.save(); c.globalAlpha = 0.18 * Math.sin(Math.PI * sweep); c.fillStyle = '#FFB347'; c.fillRect(0, 0, W, H); c.restore();
+    c.fillStyle = '#16205A'; c.beginPath(); c.roundRect(60, 420, 840, 400, 50); c.fill(); c.fillStyle = '#1C2870'; c.beginPath(); c.roundRect(60, 380, 840, 120, 40); c.fill();
+    c.save(); c.translate(520, 560 + Math.sin(t * TAU / 2.5) * 3); c.rotate(-0.35); figure(0, 0, 0.62, '#03041A', { sit: true }); c.restore();
+  },
+  nightdoor(t) {                                         // a bedroom door left open a crack, hallway light on the floor
+    sky([[0, '#060C2A'], [1, '#0C1646']]);
+    const open = 60 + 16 * TW(t); c.fillStyle = '#FFC24A'; c.fillRect(740, 80, open, 600); glow(760, 380, 380, '#FFC24A', 0.25);
+    c.fillStyle = '#0A0E30'; c.fillRect(740 + open, 80, 180, 600); c.fillStyle = '#060A24'; c.fillRect(720, 60, 20, 640);
+    c.save(); c.globalAlpha = 0.3; c.fillStyle = '#FFC24A'; c.beginPath(); c.moveTo(740, 680); c.lineTo(740 + open, 680); c.lineTo(500 + open * 3, H); c.lineTo(300, H); c.fill(); c.restore();
+    c.fillStyle = '#1A2266'; c.beginPath(); c.roundRect(40, 520, 460, 160, 30); c.fill(); c.fillStyle = '#E8E4FF'; c.beginPath(); c.roundRect(60, 500, 140, 50, 20); c.fill();
+    const r = rng(107); for (let i = 0; i < 14; i++) { const x = 60 + r() * 560, y = 60 + r() * 300, a = 0.4 + 0.4 * Math.sin(t * TAU / 2.5 + i); c.fillStyle = rgba('#B8F0A0', a); c.save(); c.translate(x, y); c.rotate(r() * 6); c.beginPath(); for (let k = 0; k < 10; k++) { const rr = k % 2 ? 4 : 10, aa = k * Math.PI / 5; c.lineTo(Math.cos(aa) * rr, Math.sin(aa) * rr); } c.fill(); c.restore(); }
+    dust(25, 109, t, '#FFE2A8', [740, 80, 120, 700], 6);
+  },
+  walkhome(t) {                                          // two friends walking home under streetlights
+    sky([[0, '#0E2A5A'], [0.6, '#5A2A7A'], [1, '#C2416A']]);
+    c.fillStyle = '#1A1240'; c.beginPath(); c.moveTo(0, 560); for (let x = 0; x <= W; x += 60) c.lineTo(x, 520 - 60 * Math.abs(Math.sin(x * 0.01))); c.lineTo(W, 820); c.lineTo(0, 820); c.fill();
+    c.fillStyle = '#2A1E5A'; c.fillRect(0, 640, W, 180); c.fillStyle = '#3A2A72'; c.fillRect(0, 630, W, 14);
+    const off = P5(t) * 320; for (let i = -1; i < 4; i++) streetlamp(i * 320 + 120 - off + 320, 640, 330, t, '#FFB347', i);
+    walker(420, 640 - 210 * 0.5, 0.5, '#07041A', t, 0); walker(500, 640 - 210 * 0.46, 0.46, '#07041A', t, 0.8);
+    dust(30, 113, t, '#FFD0A0', [0, 300, W, 340], 18);
+  },
+  housewindows(t) {                                      // the last night everyone was home: every window lit
+    sky([[0, '#06082A'], [1, '#141A5A']]); stars(90, 117, t, 360); disc(800, 120, 40, '#F4F0FF'); glow(800, 120, 140, '#C8D0FF', 0.25);
+    c.fillStyle = '#0C0E3A'; c.fillRect(0, 640, W, 180);
+    c.fillStyle = '#1E1A5A'; c.fillRect(300, 470, 360, 190); c.fillRect(330, 360, 300, 120); c.fillStyle = '#120E40'; c.beginPath(); c.moveTo(280, 360); c.lineTo(480, 240); c.lineTo(680, 360); c.fill();
+    const win = [[340, 500], [450, 500], [560, 500], [360, 385], [530, 385]]; win.forEach(([x, y], i) => { const tv = i === 2; const col = tv ? (Math.sin(t * TAU * 3) > 0 ? '#7FD8FF' : '#A0E8FF') : '#FFC24A'; c.fillStyle = col; c.fillRect(x, y, 70, 60); glow(x + 35, y + 30, 70, col, 0.25); c.fillStyle = '#1E1A5A'; c.fillRect(x + 33, y, 4, 60); });
+    c.fillStyle = '#120E40'; c.fillRect(560, 250, 34, 70); for (let i = 0; i < 5; i++) { const k = (P5(t) + i / 5) % 1; disc(578 + Math.sin(k * 6) * 14 + k * 40, 245 - k * 180, 14 + k * 26, `rgba(200,200,240,${0.22 * (1 - k)})`); }
+    tree(150, 650, 1.1, '#0A0A30', t); tree(820, 650, 0.9, '#0A0A30', t);
+  },
+  kitchenlight(t) {                                      // golden light in the kitchen, dinner on, people at the table
+    sky([[0, '#0F4A4A'], [1, '#0A3434']]);
+    c.fillStyle = '#FFB347'; c.fillRect(620, 100, 220, 220); c.fillStyle = '#0F4A4A'; c.fillRect(725, 100, 10, 220); c.fillRect(620, 205, 220, 10);
+    c.save(); c.globalAlpha = 0.2 + 0.04 * TW(t, 2); c.fillStyle = '#FFB347'; c.beginPath(); c.moveTo(620, 320); c.lineTo(840, 100); c.lineTo(520, 820); c.lineTo(80, 820); c.fill(); c.restore();
+    c.fillStyle = '#062626'; c.fillRect(0, 600, W, 220); c.fillStyle = '#7A3A14'; c.fillRect(140, 560, 520, 24); c.fillRect(170, 584, 16, 160); c.fillRect(610, 584, 16, 160);
+    figure(230 + TW(t) * 2, 560 - 40, 0.42, '#041818', { bust: true }); figure(560 + Math.sin(t * TAU / 2.5 + 1) * 2, 560 - 40, 0.42, '#041818', { bust: true });
+    c.fillStyle = '#E8E0D0'; c.beginPath(); c.ellipse(400, 556, 60, 12, 0, 0, TAU); c.fill(); steam(380, 540, t, 3);
+    c.strokeStyle = '#041818'; c.lineWidth = 4; c.beginPath(); c.moveTo(400, 0); c.lineTo(400, 120); c.stroke(); c.fillStyle = '#041818'; c.beginPath(); c.moveTo(360, 120); c.lineTo(440, 120); c.lineTo(420, 150); c.lineTo(380, 150); c.fill(); glow(400, 170, 160, '#FFD36B', 0.3);
+    dust(40, 127, t, '#FFE2A8', [80, 100, 760, 700], 6);
+  },
+  bedceiling(t) {                                        // lying awake, phone glow, the ceiling fan turning
+    sky([[0, '#140A3A'], [1, '#22125A']]);
+    c.save(); c.translate(480, 90); c.fillStyle = '#0C0628'; c.fillRect(-6, -90, 12, 90); disc(0, 0, 22, '#0C0628'); c.rotate(t * TAU / 2.5); for (let k = 0; k < 4; k++) { c.rotate(TAU / 4); c.beginPath(); c.ellipse(130, 0, 120, 18, 0, 0, TAU); c.fill(); } c.restore();
+    c.fillStyle = '#2A1A6E'; c.beginPath(); c.roundRect(40, 600, 880, 220, 30); c.fill(); c.fillStyle = '#E8E0FF'; c.beginPath(); c.roundRect(60, 560, 200, 70, 30); c.fill();
+    c.fillStyle = '#3A2A8E'; c.beginPath(); c.moveTo(260, 640); c.quadraticCurveTo(560, 560, 900, 640); c.lineTo(900, 700); c.lineTo(260, 700); c.fill();
+    disc(200, 560, 48, '#0A0420'); const ph = 0.75 + 0.25 * Math.sin(t * TAU / 1.25) ** 2; glow(300, 520, 180, '#4FE3FF', 0.45 * ph);
+    c.fillStyle = '#0A0420'; c.beginPath(); c.roundRect(280, 470, 50, 90, 8); c.fill(); c.fillStyle = rgba('#7FEBFF', ph); c.beginPath(); c.roundRect(284, 475, 42, 80, 6); c.fill();
+    dust(20, 131, t, '#9FE8FF', [100, 300, 600, 300], 4);
+  },
+  storeaisle(t) {                                        // a song comes on in a store aisle and you stop walking
+    sky([[0, '#1A0A3A'], [1, '#2A1260']]);
+    const fl = (Math.floor(t * 8) % 23 === 0) ? 0.6 : 1; for (let i = 0; i < 3; i++) { c.fillStyle = rgba('#F0F8FF', 0.9 * fl); c.fillRect(380 + i * 0, 40 + i * 70, 200 - i * 50 + 0, 10); }
+    glow(480, 60, 400, '#E0F0FF', 0.25 * fl);
+    const shelf = (side) => { for (let r = 0; r < 4; r++) { const y0 = 150 + r * 130; c.fillStyle = ['#FF4FA3', '#4FE3FF', '#FFD36B', '#7CFFB0'][r]; c.beginPath(); c.moveTo(side < 0 ? 0 : W, y0); c.lineTo(side < 0 ? 380 : 580, 300 + r * 40); c.lineTo(side < 0 ? 380 : 580, 330 + r * 40); c.lineTo(side < 0 ? 0 : W, y0 + 90); c.fill(); } };
+    c.save(); c.globalAlpha = 0.85; shelf(-1); shelf(1); c.restore();
+    c.fillStyle = '#120830'; c.beginPath(); c.moveTo(380, 470); c.lineTo(580, 470); c.lineTo(W, H); c.lineTo(0, H); c.fill();
+    for (let i = 0; i < 6; i++) { const k = (P5(t) + i / 6) % 1, x = 620 + Math.sin(k * 8 + i) * 60 + k * 120, y = 120 + k * 260; c.fillStyle = `rgba(255,255,255,${0.8 * (1 - k)})`; c.font = '700 40px Georgia'; c.fillText(i % 2 ? '♪' : '♫', x, y); }
+    figure(480 + TW(t) * 1.5, 720 - 210 * 0.62, 0.62, '#06021A', { wind: true, t });
+  },
+  cafecrowd(t) {                                         // a warm cafe window, someone inside laughing the way they used to
+    sky([[0, '#06163A'], [1, '#0C2460']]);
+    c.fillStyle = '#0A1A48'; c.fillRect(0, 0, W, 640); c.fillStyle = '#FFB347'; c.fillRect(540, 120, 380, 330); glow(730, 290, 360, '#FFB347', 0.32);
+    c.fillStyle = '#0A1A48'; c.fillRect(725, 120, 10, 330); c.fillStyle = '#C2411F'; c.fillRect(520, 90, 420, 34);
+    const laugh = Math.abs(Math.sin(t * TAU / 0.625)) * (P5(t) < 0.5 ? 1 : 0); c.fillStyle = '#7A3A10'; c.fillRect(580, 380, 120, 10); c.fillRect(760, 380, 120, 10);
+    figure(610, 340 - 4, 0.3, '#6A2A08', { bust: true }); c.save(); c.translate(670, 340); c.rotate(-0.25 * laugh); figure(0, 0, 0.3, '#6A2A08', { bust: true }); c.restore(); figure(830, 340, 0.3, '#6A2A08', { bust: true });
+    c.fillStyle = '#04102A'; c.fillRect(0, 640, W, 180);
+    figure(220 + TW(t) * 2, 700 - 210 * 0.72, 0.72, '#020818', { wind: true, t });
+    c.strokeStyle = 'rgba(180,210,255,0.3)'; c.lineWidth = 1.5; const q = rng(137); for (let i = 0; i < 60; i++) { const x = q() * W, y = (q() * H + t * 500) % H; c.beginPath(); c.moveTo(x, y); c.lineTo(x - 5, y + 22); c.stroke(); }
+  },
+  stargaze(t) {                                          // two people lying on a hill, a shooting star going over
+    sky([[0, '#030620'], [0.6, '#0A1A5A'], [1, '#123A6A']]); stars(160, 139, t, 600);
+    c.save(); c.globalAlpha = 0.18 + 0.06 * TW(t); const g = c.createLinearGradient(0, 120, W, 320); g.addColorStop(0, '#2AFFC0'); g.addColorStop(0.5, '#B04FFF'); g.addColorStop(1, '#2AFFC0'); c.fillStyle = g; c.beginPath(); c.moveTo(0, 200); c.bezierCurveTo(300, 80 + 30 * TW(t), 600, 260, W, 140); c.lineTo(W, 220); c.bezierCurveTo(600, 330, 300, 170, 0, 290); c.fill(); c.restore();
+    const u = P5(t); if (u < 0.3) { const k = u / 0.3, x = 180 + 520 * k, y = 80 + 140 * k; c.strokeStyle = `rgba(255,255,255,${1 - k})`; c.lineWidth = 3; c.beginPath(); c.moveTo(x, y); c.lineTo(x - 90, y - 24); c.stroke(); disc(x, y, 3, '#FFFFFF'); }
+    const hill = x => 700 - 90 * Math.exp(-(((x - 480) / 300) ** 2)); c.fillStyle = '#16245E'; c.beginPath(); c.moveTo(0, hill(0)); for (let x = 0; x <= W; x += 12) c.lineTo(x, hill(x)); c.lineTo(W, H); c.lineTo(0, H); c.fill(); grassLine(0, hill, t, '#16245E', 120, 18);
+    [[400, -0.12], [560, 0.12]].forEach(([x, r]) => { c.save(); c.translate(x, hill(x) - 8); c.rotate(Math.PI / 2 + r); c.fillStyle = '#02030E'; c.beginPath(); c.roundRect(-14, -70, 28, 120, 14); c.fill(); disc(0, -84, 18, '#02030E'); c.restore(); });
+  },
+  coffee(t) {                                            // two cups on a cafe table, steam rising, a hand around one
+    sky([[0, '#0A3A40'], [1, '#05262A']]); glow(480, 120, 420, '#FFB347', 0.28);
+    c.fillStyle = '#0E5058'; c.beginPath(); c.ellipse(480, 640, 520, 150, 0, 0, TAU); c.fill();
+    [[340, 560], [620, 580]].forEach(([x, y], i) => { c.fillStyle = '#FF7A3D'; c.beginPath(); c.roundRect(x - 60, y - 80, 120, 110, [10, 10, 40, 40]); c.fill(); c.strokeStyle = '#FF7A3D'; c.lineWidth = 14; c.beginPath(); c.arc(x + 66, y - 30, 26, -1.3, 1.3); c.stroke();
+      c.fillStyle = '#3A1A08'; c.beginPath(); c.ellipse(x, y - 80, 58, 12, 0, 0, TAU); c.fill(); steam(x - 18, y - 96, t + i, 3, 'rgba(255,255,255,0.3)'); });
+    c.fillStyle = '#071C20'; c.beginPath(); c.roundRect(640 + 4 * TW(t), 500, 200, 64, 30); c.fill(); c.beginPath(); c.roundRect(560 + 4 * TW(t), 520, 110, 30, 14); c.fill();
+    dust(30, 149, t, '#FFE2A8', [0, 0, W, 500], 6);
+  },
+  trainplatform(t) {                                     // a train pulling away from a night platform, one person still standing there
+    sky([[0, '#040A2A'], [1, '#0A1650']]);
+    for (let i = 0; i < 4; i++) { const x = 120 + i * 240; c.fillStyle = '#E8F0FF'; c.fillRect(x - 50, 70, 100, 8); glow(x, 80, 140, '#CFE0FF', 0.28); }
+    const u = smooth(P5(t)), tx = -60 + u * 1100;
+    c.fillStyle = '#1A2A7A'; c.fillRect(tx - 1100, 260, 1100, 220); c.fillStyle = '#0E1A5A'; c.fillRect(tx - 1100, 460, 1100, 20);
+    for (let i = 0; i < 12; i++) { const x = tx - 1080 + i * 90; c.fillStyle = '#FFD36B'; c.fillRect(x, 300, 60, 70); } disc(tx - 10, 440, 12, '#FF3B3B'); glow(tx - 10, 440, 70, '#FF3B3B', 0.5);
+    c.fillStyle = '#121C4A'; c.fillRect(0, 520, W, 300); c.fillStyle = '#FFD36B'; c.fillRect(0, 520, W, 8);
+    figure(420 + TW(t) * 2, 760 - 210 * 0.85, 0.85, '#030618', { wind: true, t });
+    fogBands(440, 540, t, '#8FA8FF', 0.12, 3, 151);
+  },
+  plantwindow(t) {                                       // a small plant on a rainy windowsill, a new leaf slowly opening
+    sky([[0, '#0A3A3A'], [1, '#062A2A']]);
+    c.fillStyle = vgrad(80, 470, [[0, '#2A6A7A'], [1, '#4A8A8A']]); c.fillRect(120, 80, 720, 390); c.strokeStyle = '#062A2A'; c.lineWidth = 18; c.strokeRect(120, 80, 720, 390); c.fillStyle = '#062A2A'; c.fillRect(470, 80, 18, 390);
+    c.strokeStyle = 'rgba(220,250,255,0.4)'; c.lineWidth = 1.5; const q = rng(157); for (let i = 0; i < 70; i++) { const x = 130 + q() * 700, y = 90 + ((q() * 380 + t * 300) % 380); c.beginPath(); c.moveTo(x, y); c.lineTo(x - 2, y + 16); c.stroke(); }
+    c.fillStyle = '#0E3F3F'; c.fillRect(80, 470, 800, 40);
+    c.fillStyle = '#FF6B4A'; c.beginPath(); c.moveTo(640, 470); c.lineTo(760, 470); c.lineTo(745, 380); c.lineTo(655, 380); c.fill();
+    const leaf = (a, l, w2) => { c.save(); c.translate(700, 380); c.rotate(a); c.fillStyle = '#4ADE80'; c.beginPath(); c.moveTo(0, 0); c.quadraticCurveTo(w2, -l / 2, 0, -l); c.quadraticCurveTo(-w2, -l / 2, 0, 0); c.fill(); c.restore(); };
+    leaf(-0.6 + 0.03 * TW(t), 110, 34); leaf(0.5 + 0.03 * TW(t, 2), 120, 36); leaf(-0.1, 60 + 50 * smooth(P5(t)), 8 + 22 * smooth(P5(t)));
+    glow(700, 300, 160, '#7CFFB0', 0.15);
+  },
+  carrain(t) {                                           // crying in the car: rain on the windshield, wipers, red lights ahead
+    sky([[0, '#04082A'], [1, '#0A1450']]);
+    const r = rng(163); for (let i = 0; i < 18; i++) { const x = r() * W, y = 120 + r() * 300, rr = 20 + r() * 50; glow(x, y, rr, ['#FF3B5C', '#FFB347', '#4FE3FF'][i % 3], 0.35 + 0.15 * Math.sin(t * TAU / 2.5 + i)); }
+    for (let i = 0; i < 80; i++) { const x = r() * W, y = 60 + r() * 460, s = 2 + r() * 5; disc(x, y, s, 'rgba(200,220,255,0.25)'); }
+    const wa = Math.sin(t * TAU / 1.25) * 1.1; [[260, 1], [620, 1]].forEach(([x]) => { c.save(); c.translate(x, 520); c.rotate(-Math.PI / 2 + wa); c.fillStyle = '#02040F'; c.fillRect(0, -4, 330, 8); c.restore(); });
+    c.fillStyle = '#02040F'; c.beginPath(); c.moveTo(0, 0); c.lineTo(W, 0); c.lineTo(W, 60); c.quadraticCurveTo(480, 30, 0, 60); c.fill(); c.fillRect(0, 520, W, 300);
+    c.strokeStyle = '#0A0E2A'; c.lineWidth = 26; c.beginPath(); c.arc(330, 700, 150, Math.PI * 1.05, Math.PI * 1.95); c.stroke();
+    figure(300, 900, 1.4, '#05081E', { bust: true });
+  },
+  ripples(t) {                                           // a still lake at night, circles spreading wider and wider
+    sky([[0, '#020A1E'], [0.45, '#06244A'], [0.46, '#041A36'], [1, '#020E22']]); stars(80, 167, t, 360);
+    disc(640, 160, 46, '#F4F0FF'); glow(640, 160, 160, '#C8D8FF', 0.3);
+    c.strokeStyle = 'rgba(230,240,255,0.5)'; for (let i = 0; i < 14; i++) { const y = 400 + i * 22, w = 30 + i * 9 + 6 * Math.sin(t * TAU / 1.25 + i); c.lineWidth = 2; c.beginPath(); c.moveTo(640 - w, y); c.lineTo(640 + w, y); c.stroke(); }
+    for (let i = 0; i < 4; i++) { const k = (P5(t) + i / 4) % 1; c.strokeStyle = `rgba(130,230,255,${0.6 * (1 - k)})`; c.lineWidth = 3; c.beginPath(); c.ellipse(380, 640, 30 + 360 * k, 8 + 90 * k, 0, 0, TAU); c.stroke(); }
+    c.fillStyle = '#020814'; c.beginPath(); c.moveTo(0, 700); c.quadraticCurveTo(160, 660, 300, 720); c.lineTo(300, 820); c.lineTo(0, 820); c.fill();
+    figure(150, 690 - 40, 0.5, '#010410', { sit: true }); glow(250, 690, 50, '#FFB347', 0.55); disc(250, 690, 6, '#FFD27A');
+  },
+});
+
 // slow camera push on every scene in the library (about 5% over each 5 s loop): the main source of "smooth"
 for (const name of Object.keys(SCENES)) {
   const draw = SCENES[name];

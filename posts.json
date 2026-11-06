@@ -1,170 +1,139 @@
 {
-  "account": "TikTok @whatifanimatedvideos",
-  "posts": [
-    {
-      "id": "IA-004",
-      "title": "Head start",
-      "pillar": "comeback",
-      "caption": "the comeback, no. 1. nobody posts their first hundred attempts. #startingover #discipline #philosophy #ifanimated",
-      "post_at_utc": "2026-11-09T11:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-001",
-      "title": "Chosen",
-      "pillar": "younger self",
-      "caption": "for the kid who sat three rows back. letters to your younger self, no. 1 #philosophy #youngerself #deepthoughts #ifanimated",
-      "post_at_utc": "2026-11-09T18:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-003",
-      "title": "This exact scroll",
-      "pillar": "quiet years",
-      "caption": "the quiet years, no. 1. face down after this one. #loneliness #deepthoughts #philosophy #ifanimated",
-      "post_at_utc": "2026-11-10T03:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-002",
-      "title": "Just early",
-      "pillar": "heartbreak",
-      "caption": "heartbreak, no. 1. you were never hard to love. #heartbreak #lettinggo #philosophy #ifanimated",
-      "post_at_utc": "2026-11-10T11:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-005",
-      "title": "Later",
-      "pillar": "old wisdom",
-      "caption": "old wisdom, no. 1. later is not a date. #seneca #stoicism #philosophy #ifanimated",
-      "post_at_utc": "2026-11-10T18:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-009",
-      "title": "A year away",
-      "pillar": "comeback",
-      "caption": "the comeback, no. 2. next november's blurry memory. #hardtimes #perspective #philosophy #ifanimated",
-      "post_at_utc": "2026-11-11T03:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-007",
-      "title": "Slow is not can't",
-      "pillar": "younger self",
-      "caption": "letters to your younger self, no. 2. slow was never the same as can't. #youngerself #selfworth #philosophy #ifanimated",
-      "post_at_utc": "2026-11-11T11:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-008",
-      "title": "The strong friend",
-      "pillar": "quiet years",
-      "caption": "the quiet years, no. 2. for the strong friend. #strongfriend #deepthoughts #philosophy #ifanimated",
-      "post_at_utc": "2026-11-11T18:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-006",
-      "title": "The 2am text",
-      "pillar": "heartbreak",
-      "caption": "heartbreak, no. 2. let tonight be the night you don't. #heartbreak #movingon #philosophy #ifanimated",
-      "post_at_utc": "2026-11-12T03:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-010",
-      "title": "No script",
-      "pillar": "old wisdom",
-      "caption": "old wisdom, no. 2. that version doesn't exist yet. #epictetus #stoicism #overthinking #philosophy #ifanimated",
-      "post_at_utc": "2026-11-12T11:00:00Z",
-      "status": "waiting for voiceover"
-    },
-    {
-      "id": "IA-017",
-      "title": "The fake part",
-      "pillar": "comeback",
-      "caption": "the comeback, no. 3. stay long enough for it to fit. #startingover #discipline #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-12T18:00:00Z"
-    },
-    {
-      "id": "IA-011",
-      "title": "The year everyone moved on",
-      "pillar": "younger self",
-      "caption": "letters to your younger self, no. 3. the stretch nobody photographs. #youngerself #quarterlife #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-13T03:00:00Z"
-    },
-    {
-      "id": "IA-015",
-      "title": "Alone at twenty-five",
-      "pillar": "quiet years",
-      "caption": "the quiet years, no. 3. the silence is not a verdict. #loneliness #quarterlife #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-13T11:00:00Z"
-    },
-    {
-      "id": "IA-013",
-      "title": "Your side of the door",
-      "pillar": "heartbreak",
-      "caption": "heartbreak, no. 3. the door was always on your side. #heartbreak #closure #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-13T18:00:00Z"
-    },
-    {
-      "id": "IA-019",
-      "title": "Pick the color",
-      "pillar": "old wisdom",
-      "caption": "old wisdom, no. 3. the soul is dyed by the thoughts. #marcusaurelius #stoicism #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-14T03:00:00Z"
-    },
-    {
-      "id": "IA-018",
-      "title": "A blur in the background",
-      "pillar": "comeback",
-      "caption": "the comeback, no. 4. a blur in the background. #confidence #startingover #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-14T11:00:00Z"
-    },
-    {
-      "id": "IA-012",
-      "title": "They were guessing too",
-      "pillar": "younger self",
-      "caption": "letters to your younger self, no. 4. a guess made at midnight. #youngerself #family #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-14T18:00:00Z"
-    },
-    {
-      "id": "IA-016",
-      "title": "Someone has to go first",
-      "pillar": "quiet years",
-      "caption": "the quiet years, no. 4. be the one who calls. #friendship #loneliness #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-15T03:00:00Z"
-    },
-    {
-      "id": "IA-014",
-      "title": "Missing is not coming back",
-      "pillar": "heartbreak",
-      "caption": "heartbreak, no. 4. a late-night like is a habit. #heartbreak #movingon #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-15T11:00:00Z"
-    },
-    {
-      "id": "IA-020",
-      "title": "Send it",
-      "pillar": "old wisdom",
-      "caption": "old wisdom, no. 4. we suffer more in imagination. #seneca #stoicism #overthinking #philosophy #ifanimated",
-      "status": "waiting for voiceover",
-      "post_at_utc": "2026-11-15T18:00:00Z"
-    }
-  ],
-  "slots_us_eastern": [
-    "6:00 AM",
-    "1:00 PM",
-    "10:00 PM"
-  ]
+ "account": "TikTok @whatifanimatedvideos",
+ "posts": [
+  {
+   "id": "IA-021",
+   "title": "The last time",
+   "pillar": "memory",
+   "caption": "the last time, no. 1. one of these ordinary days is a last time too. #nostalgia #childhoodmemories #philosophy #deepthoughts #ifanimated",
+   "post_at_utc": "2026-11-09T11:00:00Z",
+   "video": "reels/IA-021.mp4",
+   "status": "queued, pending approval"
+  },
+  {
+   "id": "IA-022",
+   "title": "Still in your head",
+   "pillar": "love",
+   "caption": "love, no. 1. some people are meant to leave you different. #love #movingon #philosophy #deepthoughts #ifanimated",
+   "post_at_utc": "2026-11-09T18:00:00Z",
+   "video": "reels/IA-022.mp4",
+   "status": "queued, pending approval"
+  },
+  {
+   "id": "IA-023",
+   "title": "Healing is weird",
+   "pillar": "healing",
+   "caption": "healing, no. 1. nobody heals in a straight line. #healing #healingjourney #philosophy #deepthoughts #ifanimated",
+   "post_at_utc": "2026-11-10T03:00:00Z",
+   "video": "reels/IA-023.mp4",
+   "status": "queued, pending approval"
+  }
+ ],
+ "slots_us_eastern": [
+  "6:00 AM",
+  "1:00 PM",
+  "10:00 PM"
+ ],
+ "retired": [
+  {
+   "id": "IA-004",
+   "title": "Head start",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-001",
+   "title": "Chosen",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-003",
+   "title": "This exact scroll",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-002",
+   "title": "Just early",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-005",
+   "title": "Later",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-009",
+   "title": "A year away",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-007",
+   "title": "Slow is not can't",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-008",
+   "title": "The strong friend",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-006",
+   "title": "The 2am text",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-010",
+   "title": "No script",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-017",
+   "title": "The fake part",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-011",
+   "title": "The year everyone moved on",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-015",
+   "title": "Alone at twenty-five",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-013",
+   "title": "Your side of the door",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-019",
+   "title": "Pick the color",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-018",
+   "title": "A blur in the background",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-012",
+   "title": "They were guessing too",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-016",
+   "title": "Someone has to go first",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-014",
+   "title": "Missing is not coming back",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  },
+  {
+   "id": "IA-020",
+   "title": "Send it",
+   "reason": "self-improvement angle; replaced by love/memory/healing themes"
+  }
+ ]
 }
