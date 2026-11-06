@@ -1,0 +1,85 @@
+{
+  "account": "TikTok @whatifanimatedvideos",
+  "posts": [
+    {
+      "id": "IA-004",
+      "title": "Head start",
+      "pillar": "comeback",
+      "caption": "the comeback, no. 1. nobody posts their first hundred attempts. #startingover #discipline #philosophy #ifanimated",
+      "post_at_utc": "2026-11-09T18:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-001",
+      "title": "Chosen",
+      "pillar": "younger self",
+      "caption": "for the kid who sat three rows back. letters to your younger self, no. 1 #philosophy #youngerself #deepthoughts #ifanimated",
+      "post_at_utc": "2026-11-10T11:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-003",
+      "title": "This exact scroll",
+      "pillar": "quiet years",
+      "caption": "the quiet years, no. 1. face down after this one. #loneliness #deepthoughts #philosophy #ifanimated",
+      "post_at_utc": "2026-11-12T03:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-002",
+      "title": "Just early",
+      "pillar": "heartbreak",
+      "caption": "heartbreak, no. 1. you were never hard to love. #heartbreak #lettinggo #philosophy #ifanimated",
+      "post_at_utc": "2026-11-12T18:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-005",
+      "title": "Later",
+      "pillar": "old wisdom",
+      "caption": "old wisdom, no. 1. later is not a date. #seneca #stoicism #philosophy #ifanimated",
+      "post_at_utc": "2026-11-13T23:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-006",
+      "title": "The 2am text",
+      "pillar": "heartbreak",
+      "caption": "heartbreak, no. 2. let tonight be the night you don't. #heartbreak #movingon #philosophy #ifanimated",
+      "post_at_utc": "2026-11-14T22:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-007",
+      "title": "Slow is not can't",
+      "pillar": "younger self",
+      "caption": "letters to your younger self, no. 2. slow was never the same as can't. #youngerself #selfworth #philosophy #ifanimated",
+      "post_at_utc": "2026-11-15T14:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-009",
+      "title": "A year away",
+      "pillar": "comeback",
+      "caption": "the comeback, no. 2. next november's blurry memory. #hardtimes #perspective #philosophy #ifanimated",
+      "post_at_utc": "2026-11-16T18:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-008",
+      "title": "The strong friend",
+      "pillar": "quiet years",
+      "caption": "the quiet years, no. 2. for the strong friend. #strongfriend #deepthoughts #philosophy #ifanimated",
+      "post_at_utc": "2026-11-17T11:00:00Z",
+      "status": "waiting for voiceover"
+    },
+    {
+      "id": "IA-010",
+      "title": "No script",
+      "pillar": "old wisdom",
+      "caption": "old wisdom, no. 2. that version doesn't exist yet. #epictetus #stoicism #overthinking #philosophy #ifanimated",
+      "post_at_utc": "2026-11-19T03:00:00Z",
+      "status": "waiting for voiceover"
+    }
+  ]
+}
