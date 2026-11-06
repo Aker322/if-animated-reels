@@ -61,11 +61,11 @@ const SCENES = {
     dust(40, 9, t, '#F6E7C8', [0, 0, W, 600], 18);
   },
   laptopdark(t) {
-    sky([[0, '#05070F'], [1, '#0E1424']]);
-    c.fillStyle = '#1A2540'; c.fillRect(70, 90, 210, 300); c.fillStyle = '#B8C8E8'; c.globalAlpha = 0.18; c.fillRect(82, 102, 186, 276); c.globalAlpha = 1;
+    sky([[0, '#14062E'], [1, '#26104E']]);
+    c.fillStyle = '#3A1A6A'; c.fillRect(70, 90, 210, 300); c.fillStyle = '#B8C8E8'; c.globalAlpha = 0.18; c.fillRect(82, 102, 186, 276); c.globalAlpha = 1;
     c.fillStyle = '#05070F'; c.fillRect(170, 90, 12, 300); c.fillRect(70, 232, 210, 12);
     const fl = 0.85 + 0.15 * Math.sin(t * 23) * Math.sin(t * 7.3) + (Math.floor(t * 6) % 7 === 0 ? 0.12 : 0);
-    glow(480, 380, 520, '#7FB8FF', 0.35 * fl);
+    glow(480, 380, 540, '#4FE3FF', 0.42 * fl);
     c.fillStyle = '#0A0E18'; c.fillRect(0, 610, W, 210);
     c.fillStyle = '#1E2638'; c.beginPath(); c.roundRect(300, 250, 360, 240, 14); c.fill();
     c.fillStyle = `rgba(214,236,255,${0.92 * fl})`; c.beginPath(); c.roundRect(316, 266, 328, 208, 8); c.fill();
@@ -101,8 +101,8 @@ const SCENES = {
     c.fillStyle = '#03050A'; c.fillRect(0, 0, W, 36); c.fillRect(0, H - 40, W, 40); c.fillRect(0, 0, 36, H); c.fillRect(W - 36, 0, 36, H); c.fillRect(W / 2 - 14, 0, 28, H); c.fillRect(0, H / 2 - 12, W, 24);
   },
   clock(t) {
-    sky([[0, '#2A160C'], [1, '#4A2A16']]);
-    c.save(); c.globalAlpha = 0.18; c.fillStyle = '#FFD9A0'; c.beginPath(); c.moveTo(0, 0); c.lineTo(260, 0); c.lineTo(820, 820); c.lineTo(420, 820); c.fill(); c.restore();
+    sky([[0, '#06303A'], [1, '#0D4752']]);
+    c.save(); c.globalAlpha = 0.24; c.fillStyle = '#FFC24A'; c.beginPath(); c.moveTo(0, 0); c.lineTo(260, 0); c.lineTo(820, 820); c.lineTo(420, 820); c.fill(); c.restore();
     dust(50, 13, t, '#FFE6BF', [100, 0, 700, 820], 10);
     disc(492, 424, 280, 'rgba(0,0,0,0.35)'); disc(480, 410, 280, '#3A2414'); disc(480, 410, 250, '#F2E6CC');
     c.strokeStyle = '#3A2414'; c.lineCap = 'round';
@@ -148,8 +148,8 @@ const SCENES = {
     c.strokeStyle = '#1A0E24'; c.lineWidth = 3; for (let i = 0; i < 4; i++) { const bx = ((t * 40 + i * 120) % 1100) - 80, by = 200 + i * 30 + Math.sin(t * 2 + i) * 6, f = Math.sin(t * 9 + i) * 6; c.beginPath(); c.moveTo(bx - 14, by - f); c.quadraticCurveTo(bx - 6, by - 6, bx, by); c.quadraticCurveTo(bx + 6, by - 6, bx + 14, by - f); c.stroke(); }
   },
   desklamp(t) {
-    sky([[0, '#0B0806'], [1, '#160F0A']]);
-    c.fillStyle = '#2A1C14'; c.fillRect(0, 430, W, 390);
+    sky([[0, '#071640'], [1, '#0E2560']]);
+    c.fillStyle = '#4A2A14'; c.fillRect(0, 430, W, 390);
     c.save(); c.globalAlpha = 0.5; c.fillStyle = vgrad(60, 700, [[0, 'rgba(255,214,150,0.9)'], [1, 'rgba(255,214,150,0)']]); c.beginPath(); c.moveTo(250, 120); c.lineTo(330, 120); c.lineTo(760, 760); c.lineTo(80, 760); c.fill(); c.restore();
     c.fillStyle = '#1A1210'; c.beginPath(); c.moveTo(190, 70); c.lineTo(380, 70); c.lineTo(330, 130); c.lineTo(240, 130); c.fill(); c.fillRect(278, 0, 14, 72);
     c.save(); c.translate(470, 600); c.rotate(-0.06); c.fillStyle = 'rgba(0,0,0,0.35)'; c.fillRect(-206, -136, 420, 290); c.fillStyle = '#F4EEDF'; c.fillRect(-214, -146, 420, 290);
