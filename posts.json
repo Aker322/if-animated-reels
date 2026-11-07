@@ -6,7 +6,7 @@
    "title": "The last time",
    "pillar": "memory",
    "caption": "the last time, no. 1. one of these ordinary days is a last time too. #nostalgia #childhoodmemories #philosophy #deepthoughts #ifanimated",
-   "post_at_utc": "2026-11-09T11:00:00Z",
+   "post_at_utc": "2026-11-07T11:00:00Z",
    "video": "reels/IA-021.mp4",
    "status": "approved"
   },
@@ -15,7 +15,7 @@
    "title": "Still in your head",
    "pillar": "love",
    "caption": "love, no. 1. some people are meant to leave you different. #love #movingon #philosophy #deepthoughts #ifanimated",
-   "post_at_utc": "2026-11-09T18:00:00Z",
+   "post_at_utc": "2026-11-07T18:00:00Z",
    "video": "reels/IA-022.mp4",
    "status": "approved"
   },
@@ -24,7 +24,7 @@
    "title": "Healing is weird",
    "pillar": "healing",
    "caption": "healing, no. 1. nobody heals in a straight line. #healing #healingjourney #philosophy #deepthoughts #ifanimated",
-   "post_at_utc": "2026-11-10T03:00:00Z",
+   "post_at_utc": "2026-11-08T03:00:00Z",
    "video": "reels/IA-023.mp4",
    "status": "approved"
   },
@@ -33,27 +33,27 @@
    "title": "Friends who drifted",
    "pillar": "friendship",
    "caption": "friendship, no. 1. some friends are meant to get you here. #friendship #oldfriends #philosophy #deepthoughts #ifanimated",
-   "post_at_utc": "2026-11-10T11:00:00Z",
+   "post_at_utc": "2026-11-08T11:00:00Z",
    "video": "reels/IA-024.mp4",
-   "status": "queued, pending approval"
+   "status": "approved"
   },
   {
    "id": "IA-025",
    "title": "Your parents were young too",
    "pillar": "people",
    "caption": "people, no. 1. you only met them in the middle of their story. #parents #family #philosophy #deepthoughts #ifanimated",
-   "post_at_utc": "2026-11-10T18:00:00Z",
+   "post_at_utc": "2026-11-08T18:00:00Z",
    "video": "reels/IA-025.mp4",
-   "status": "queued, pending approval"
+   "status": "approved"
   },
   {
    "id": "IA-026",
    "title": "You live in their memories",
    "pillar": "memory",
    "caption": "memory, no. 1. you were never as small as you felt. #memories #kindness #philosophy #deepthoughts #ifanimated",
-   "post_at_utc": "2026-11-11T03:00:00Z",
+   "post_at_utc": "2026-11-09T03:00:00Z",
    "video": "reels/IA-026.mp4",
-   "status": "queued, pending approval"
+   "status": "approved"
   }
  ],
  "slots_us_eastern": [
@@ -163,5 +163,5 @@
    "reason": "self-improvement angle; replaced by love/memory/healing themes"
   }
  ],
- "standard": "voice at least 60 s; scripts written for about 80 s (roughly 250 spoken words)"
+ "standard": "IA-021..023 stay under a minute (user choice); every reel from IA-024 on runs at least 60 s, scripts written for about 80 s"
 }
