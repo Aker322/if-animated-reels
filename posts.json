@@ -8,7 +8,7 @@
    "caption": "the last time, no. 1. one of these ordinary days is a last time too. #nostalgia #childhoodmemories #philosophy #deepthoughts #ifanimated",
    "post_at_utc": "2026-11-09T11:00:00Z",
    "video": "reels/IA-021.mp4",
-   "status": "queued, pending approval"
+   "status": "approved"
   },
   {
    "id": "IA-022",
@@ -17,7 +17,7 @@
    "caption": "love, no. 1. some people are meant to leave you different. #love #movingon #philosophy #deepthoughts #ifanimated",
    "post_at_utc": "2026-11-09T18:00:00Z",
    "video": "reels/IA-022.mp4",
-   "status": "queued, pending approval"
+   "status": "approved"
   },
   {
    "id": "IA-023",
@@ -26,6 +26,33 @@
    "caption": "healing, no. 1. nobody heals in a straight line. #healing #healingjourney #philosophy #deepthoughts #ifanimated",
    "post_at_utc": "2026-11-10T03:00:00Z",
    "video": "reels/IA-023.mp4",
+   "status": "approved"
+  },
+  {
+   "id": "IA-024",
+   "title": "Friends who drifted",
+   "pillar": "friendship",
+   "caption": "friendship, no. 1. some friends are meant to get you here. #friendship #oldfriends #philosophy #deepthoughts #ifanimated",
+   "post_at_utc": "2026-11-10T11:00:00Z",
+   "video": "reels/IA-024.mp4",
+   "status": "queued, pending approval"
+  },
+  {
+   "id": "IA-025",
+   "title": "Your parents were young too",
+   "pillar": "people",
+   "caption": "people, no. 1. you only met them in the middle of their story. #parents #family #philosophy #deepthoughts #ifanimated",
+   "post_at_utc": "2026-11-10T18:00:00Z",
+   "video": "reels/IA-025.mp4",
+   "status": "queued, pending approval"
+  },
+  {
+   "id": "IA-026",
+   "title": "You live in their memories",
+   "pillar": "memory",
+   "caption": "memory, no. 1. you were never as small as you felt. #memories #kindness #philosophy #deepthoughts #ifanimated",
+   "post_at_utc": "2026-11-11T03:00:00Z",
+   "video": "reels/IA-026.mp4",
    "status": "queued, pending approval"
   }
  ],
@@ -135,5 +162,6 @@
    "title": "Send it",
    "reason": "self-improvement angle; replaced by love/memory/healing themes"
   }
- ]
+ ],
+ "standard": "voice at least 60 s; scripts written for about 80 s (roughly 250 spoken words)"
 }
